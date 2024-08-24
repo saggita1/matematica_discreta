@@ -44,10 +44,16 @@ int main() {
     printf("\n");
     // mostrar matriz
     for (int i = 0; i < numero_linhas; i++) {
+        printf("[");
         for (int j = 0; j < numero_colunas; j++) {
-            printf("%d ", matriz[i][j]);
+            if (numero_colunas - j == 1) {
+                printf("%d", matriz[i][j]);
+            }
+            else {
+                printf("%d, ", matriz[i][j]);
+            }
         }
-        printf("\n");
+        printf("]\n");
     }
 
 }
