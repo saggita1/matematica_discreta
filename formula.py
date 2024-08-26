@@ -1,15 +1,15 @@
-from sympy import symbols, Sum, binomial, simplify, pretty
+from sympy import symbols, Sum, binomial, pretty
 
 # Definindo as variáveis simbólicas
 n, m, j, k = symbols('n m j k')
 
 # Definindo a fórmula para a_menos_j
-a_menos_j = Sum((-1)**k * binomial(j, k) * (1 - k + j)**m, (k, 0, j)).doit()
+a_menos_j = Sum((-1)**k * binomial(j, k) *  (1 - k + j)**m, (k, 0, j))
 
 # Função para gerar a fórmula simbólica
 def gerar_formula_potencias(m_val, n_val):
     # Expressão geral para a soma das m-ésimas potências
-    soma_expr = Sum(binomial(n_val, j + 1) * a_menos_j.subs(j, m_val), (j, 0, m_val))
+    soma_expr = Sum(binomial(n_val, j + 1) * a_menos_j.subs(m,m_val), (j, 0, m_val))
     return soma_expr
 
 # Exemplo de uso para m = 2 e n = 5
