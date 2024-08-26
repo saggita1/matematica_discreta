@@ -10,12 +10,23 @@ def gerar_formula_potencias(m_val, n_val):
     soma_expr = Sum(binomial(n_val, j + 1) * a_menos_j.subs(m,m_val), (j, 0, m_val))
     return soma_expr
 
+def enesimo(n, m):
+    soma = 0
+    n_natural = 1
+    while n_natural <= n:
+        soma += n_natural**m
+        n_natural += 1
+    
+    return soma
+
+
 # recebimento de M e N
-m_val = int(input("Digite o valor de M: "))
+m_val = int(input("\nDigite o valor de M: "))
 n_val = int(input("Digite o valor de N: "))
 formula_gerada = gerar_formula_potencias(m_val, n_val)
 
 
 # impressão
-print(f"A fórmula para a soma das {m_val}-ésimas potências dos números naturais até {n_val} é:")
+print(f"\nA fórmula para a soma das {m_val}-ésimas potências dos números naturais até {n_val} é:")
 print(pretty(formula_gerada, use_unicode=True))
+print(f"\nO resultado é {enesimo(n_val, m_val)}\n")
