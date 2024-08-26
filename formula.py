@@ -9,12 +9,12 @@ a_menos_j = Sum((-1)**k * binomial(j, k) * (1 - k + j)**m, (k, 0, j)).doit()
 # Função para gerar a fórmula simbólica
 def gerar_formula_potencias(m_val, n_val):
     # Expressão geral para a soma das m-ésimas potências
-    soma_expr = Sum(binomial(n_val, j + 1) * a_menos_j.subs(j, m_val - j), (j, 0, m_val))
+    soma_expr = Sum(binomial(n_val, j + 1) * a_menos_j.subs(j, m_val), (j, 0, m_val))
     return soma_expr
 
 # Exemplo de uso para m = 2 e n = 5
 m_val = 2
-n_val = symbols('n')  # n_val pode ser um símbolo ou um número
+n_val = 5  # n_val pode ser um símbolo ou um número
 formula_gerada = gerar_formula_potencias(m_val, n_val)
 
 # Utilizando o pretty para imprimir a fórmula de forma mais legível
